@@ -42,14 +42,14 @@ if(true){
 
 // ********* interesting ***********
 
-console.log(addOne(5))
+console.log(addOne(5))  // will work fine
 function addOne(num){
     return num + 1
 }
 
 
 
-console.log(addTwo(5))
+// console.log(addTwo(5))      // will give error
 const addTwo = function(num){
     return num + 2
 }
