@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DOM</title>
-</head>
-<body>
-    <div class="bg-black">
-        <h1 class="heading">DOM learning wiht me</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-    </div>
-</body>
-</html>
-
-
 <!-- 
                                  window
                                   |
@@ -34,3 +19,64 @@
                                             /       \
                                         text node  attribute
 -->     
+
+<!-- 
+#.innerHTML => return full text with html inside # // # can be class or id
+
+#.textContent => returns full text inside #
+
+#.innerText => returns text excluding some having css like hidden, etc..
+
+document.querySelector("") => select the first element of whichever type stated in ("")
+eg. const selector = document.querySelector("") 
+    selector.style.backgroundColor = "green"
+    
+document.querySelectorAll("") => select the all elements of whichever type stated in ("") => returns nodelist not array
+eg. const selector = document.querySelectoAllr("") 
+    selector[0].style.backgroundColor = "green" => we need to state which child of selector we want to target
+// whenever there comes the nodelist use the loop "forEach" then we can work on it as an array but it is not an array. 
+
+document.getElementsByClassName('list-item')
+=>returns html collection and again it is not an array so we can't work directly it on like an array
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item] 
+=> so we need to convert it into an array using
+=>Array.from(tempClassList)
+=>it will return something like
+  (4) [li.list-item, li.list-item, li.list-item, li.list-item]
+  now this is an array we can work on it like we do on array
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+      .bg-black{
+        background-color: #212121;
+        color: #FFFFFF;
+      }
+      .hidden{
+        display: none;
+      }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id="title" class="heading">DOM learning with me <span class="hidden">Test text</span></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+
+        <input type="password" name="" id="">
+
+        <ul>
+          <li class="list-item">one</li>
+          <li class="list-item">two</li>
+          <li class="list-item">three</li>
+          <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
