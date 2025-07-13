@@ -1,7 +1,8 @@
 # Projects related to DOM
 
 ## project link
-[Click here] (https://github.com/log002/JS/tree/main/07_projects)
+[Click here](https://github.com/log002/JS/tree/main/07_projects)
+
 
 # Solution code
 
