@@ -182,6 +182,33 @@ function newGame(){
 
 ```
 
+## Project 5: Keyboard 
+[Source code](https://github.com/log002/JS/tree/main/07_projects/5-keyboard)
+
+```javascript
+const insert = document.getElementById('insert')
+
+window.addEventListener('keydown', (e) => {
+    insert.innerHTML = `
+        <div class='color'>
+            <table>
+                <tr>
+                    <th>Key</th>
+                    <th>Keycdoe</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>${e.key === " " ? "space" : e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
+                </tr>
+            </table>
+        </div>
+    `
+})
+```
+
+
 ## Project 6: Unlimited Colors 
 [Source code](https://github.com/log002/JS/tree/main/07_projects/6-unlimitedColors)
 
