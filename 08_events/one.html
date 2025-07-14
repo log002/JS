@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+</head>
+<body style="background-color: #414141; color: #FFFFFF">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: skyblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // this method provides you less features
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }    
+
+    
+    // document.getElementById('owl').addEventListener('click', function(){}, false)    // comes with three parameters as shown, if third parameter not specified it is by default "false"
+
+    // to read => type, timestamp, defaultPrevented, target
+    // toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+        
+    // }, false)
+    
+    // event propagation
+    // 1. bubbling up =>third param = "false" => goes from bottom to top, example shown as in following code first the owl eventListener will be triggered and then images eventListener if clicked on images with id=owl 
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");        
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked")
+    //     e.stopPropagation()  // to stop propagation from bubbling up
+    // }, false)
+
+
+    // 2. capturing  =>third param = "true" => goes from top to bottom, example shown as in following code first the images eventListener will be triggered and then own eventListener if clicked on images with id=owl 
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");        
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked")
+    // }, true)
+
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault()
+        e.stopPropagation()
+        console.log('google clicked')
+    },false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target.parentNode);
+
+        // the following code will remove parent when clicked on parent
+        // let removeIt = e.target.parentNode;
+        // removeIt.remove()
+        // removeIt.parentNode.removeChild(removeIt)
+        
+        // to solve that issue we'll use following logic
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+    }, false)
+    
+    
+</script>
+</html>
