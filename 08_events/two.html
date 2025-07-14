@@ -1,0 +1,43 @@
+<!-- 
+Read setIntervaal, setTimeout, clearInterval, clearTimeout 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #FFFFFF">
+    <h1>Js with me</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    // setTimeout(function() {
+    //     console.log("Sadek");
+    // }, 2000)
+    const sayMyName = function(){
+        console.log("Sadek");
+    }
+    setTimeout(sayMyName, 2000)
+
+    // setInterval(function(){
+    //     console.log("Sadek");
+    // }, 2000)
+
+    const changeHeading =  function(){
+        document.querySelector('h1').innerHTML = "Learn js with me"
+    } 
+    const changeHeader = setTimeout(changeHeading, 2000)
+    console.log(changeHeader);
+    
+    document.querySelector('#stop').addEventListener('click' ,function(){
+        clearTimeout(changeHeader)
+        console.log("Stopped");
+        
+    })
+
+
+</script>
+</html>
